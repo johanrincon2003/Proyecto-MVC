@@ -7,15 +7,48 @@ using System.Web.Mvc;
 
 namespace ProyectoºMVC.Controllers
 {
-    public class UsuarioController : Controller
+    public class CompraController : Controller
     {
-        // GET: Usuario
+        // GET: Compra
         public ActionResult Index()
-
         {
             using (var db = new inventario2021Entities1())
             {
-                return View(db.usuario.ToList());
+                return View(db.compra.ToList());
+            }
+
+        }
+        public  ActionResult ListaCliente()
+        {
+            using (var db = new inventario2021Entities1())
+            
+                return PartialView(db.cliente.ToList());
+            
+
+        }
+        public ActionResult ListaUsuario()
+        {
+            
+            using (var db=new inventario2021Entities1())
+              
+              return PartialView(db.usuario.ToList());
+              
+           
+                
+            
+        }
+        public static string NombreUsuario(int NomUsu)
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return db.usuario.Find(NomUsu).nombre;
+            }
+        }
+        public static string NombreCliente(int NomCli)
+        {
+            using (var db = new inventario2021Entities1())
+            {
+                return db.cliente.Find(NomCli).nombre;
             }
         }
         public ActionResult Create()
@@ -24,7 +57,7 @@ namespace ProyectoºMVC.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(usuario usuario)
+        public ActionResult Create(compra compra)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -32,7 +65,7 @@ namespace ProyectoºMVC.Controllers
             {
                 using (var db = new inventario2021Entities1())
                 {
-                    db.usuario.Add(usuario);
+                    db.compra.Add(compra);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -47,7 +80,7 @@ namespace ProyectoºMVC.Controllers
         {
             using (var db = new inventario2021Entities1())
             {
-                var findUser = db.usuario.Find(id);
+                var findUser = db.compra.Find(id);
                 return View(findUser);
             }
         }
@@ -57,8 +90,8 @@ namespace ProyectoºMVC.Controllers
             {
                 using (var db = new inventario2021Entities1())
                 {
-                    var findUser = db.usuario.Find(id);
-                    db.usuario.Remove(findUser);
+                    var findUser = db.compra.Find(id);
+                    db.compra.Remove(findUser);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -76,7 +109,7 @@ namespace ProyectoºMVC.Controllers
             {
                 using (var db = new inventario2021Entities1())
                 {
-                    usuario findUser = db.usuario.Where(a => a.id == id).FirstOrDefault();
+                    compra findUser = db.compra.Where(a => a.id == id).FirstOrDefault();
                     return View(findUser);
                 }
             }
@@ -88,20 +121,20 @@ namespace ProyectoºMVC.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(usuario editUser)
+        public ActionResult Edit(compra editUser)
         {
             try
             {
 
                 using (var db = new inventario2021Entities1())
                 {
-                    usuario user = db.usuario.Find(editUser.id);
+                    compra user = db.compra.Find(editUser.id);
 
-                    user.nombre = editUser.nombre;
-                    user.apellido = editUser.apellido;
-                    user.email = editUser.email;
-                    user.fecha_nacimiento = editUser.fecha_nacimiento;
-                    user.password = editUser.password;
+                    user.fecha= editUser.fecha;
+                    user.total = editUser.total;
+                    user.id_usuario = editUser.id_usuario;
+                    user.id_cliente = editUser.id_cliente;
+                   
 
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -117,16 +150,6 @@ namespace ProyectoºMVC.Controllers
 
 
         }
-        //public ActionResult login()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-
-        //public ActionResult login(string user )
-        // {
-        // }
     }
 
 }

@@ -1,0 +1,32 @@
+﻿@model ProyectoºMVC.Models.usuariorol
+
+@{ ViewBag.Title = "Detalle"; }
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Usuario Rol</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Descripcion del Rol
+        </dt>
+
+        <dd>
+            @ProyectoºMVC.Controllers.Usuario_RolController.Descripcion_Rol(Model.idRol)
+        </dd>
+
+        <dt>
+            Nombre del Usuario
+        </dt>
+
+        <dd>
+            @ProyectoºMVC.Controllers.Usuario_RolController.Nombre_Usuario(Model.idUsuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar ", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

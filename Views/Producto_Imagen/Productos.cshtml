@@ -1,0 +1,7 @@
+﻿@model IEnumerable<ProyectoºMVC.Models.producto>
+
+<select class="form-control" id="id_Producto" name="id_Producto">
+    @foreach (var item in Model)
+    {
+<option value="@item.id">@item.nombre</option>}
+</select>

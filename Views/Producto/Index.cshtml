@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProyectoºMVC.Models.proveedor>
+﻿@model IEnumerable<ProyectoºMVC.Models.producto>
 
 @{
     ViewBag.Title = "Index";
@@ -15,13 +15,16 @@
             @Html.DisplayNameFor(model => model.nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.direccion)
+            @Html.DisplayNameFor(model => model.percio_unitario)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.telefono)
+            @Html.DisplayNameFor(model => model.descripcion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_contacto)
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            proveedor
         </th>
         <th></th>
     </tr>
@@ -33,13 +36,16 @@
                 @Html.DisplayFor(modelItem => item.nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.direccion)
+                @Html.DisplayFor(modelItem => item.percio_unitario)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.telefono)
+                @Html.DisplayFor(modelItem => item.descripcion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nombre_contacto)
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @ProyectoºMVC.Controllers.ProductoController.NombreProveedor(item.id_proveedor)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
@@ -60,3 +66,4 @@
         })
     </script>
 }
+

@@ -1,31 +1,28 @@
-﻿@model IEnumerable<ProyectoºMVC.Models.usuario>
+﻿@model IEnumerable<ProyectoºMVC.Models.compra>
 
 @{
-    ViewBag.Title = "Usuarios";
+    ViewBag.Title = "Registro de Compras";
 }
 
-<h2>Usuarios</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Crear  usuario", "Create")
+    @Html.ActionLink("Crear Compra", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-           Nombre:
+            @Html.DisplayNameFor(model => model.fecha)
         </th>
         <th>
-           Apellido:
+            @Html.DisplayNameFor(model => model.total)
         </th>
         <th>
-            Fecha Nacimiento:
+            ListaClientes
         </th>
         <th>
-           Email:
+            listaUsuarios
         </th>
-        @*<th>
-           Password:
-        </th>*@
         <th></th>
     </tr>
 
@@ -33,30 +30,26 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.nombre)
+                @Html.DisplayFor(modelItem => item.fecha)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.apellido)
+                @Html.DisplayFor(modelItem => item.total)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.fecha_nacimiento)
+                @ProyectoºMVC.Controllers.CompraController.NombreCliente(item.id_cliente)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.email)
+                @ProyectoºMVC.Controllers.CompraController.NombreUsuario(item.id_usuario)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.password)
-            </td>*@
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
                 @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
-                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+                @Html.ActionLink("Eliminar ", "Delete", new { id = item.id }, new { @class = "linkDelete" })
             </td>
         </tr>
     }
 
 </table>
-
 @section scripts{
     <script>
         $(".linkDelete").click(function (event) {

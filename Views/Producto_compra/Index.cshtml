@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProyectoºMVC.Models.producto_compra>
+
+@{
+    ViewBag.Title = "Producto Compra";
+}
+
+<h2>Lista de Producto</h2>
+<p>
+    @Html.ActionLink("Registrar Producto Compra", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Número de Compra
+        </th>
+        <th>
+            Nombre Producto
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.cantidad)
+    </td>
+    <td>
+        @ProyectoºMVC.Controllers.Producto_compraController.NombreCompra(item.id_compra)
+    </td>
+    <td>
+        @ProyectoºMVC.Controllers.Producto_compraController.NombreProducto(item.id_producto)
+    </td>
+    <td>
+        @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+    </td>
+</tr>}
+
+</table>
+@section scripts{
+    <script>
+        $(".linkDelete").click(function (event) {
+            if (!confirm('¿Esta seguro de eliminar?')) {
+                event.preventDefault();
+            }
+        })
+    </script>
+}

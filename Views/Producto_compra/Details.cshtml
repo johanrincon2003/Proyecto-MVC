@@ -1,0 +1,42 @@
+﻿@model ProyectoºMVC.Models.producto_compra
+
+@{
+    ViewBag.Title = "Detalles Producto Compra";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>producto_compra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.compra.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.compra.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.producto.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producto.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>
