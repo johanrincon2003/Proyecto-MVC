@@ -40,7 +40,11 @@
                             <li>@Html.ActionLink("Usuario Roles", "Index", "Usuarioroles")</li>
 
                         </ul>
-                    
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                <li>@Html.ActionLink("Cerrar Sesion", "CloseSession", "Usuario")</li>}
+
 </div>
         </div>
     </div>
@@ -48,7 +52,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Mi Proyecto ASP</p>
         </footer>
     </div>
 

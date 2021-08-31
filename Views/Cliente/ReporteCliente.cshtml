@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ProyectoºMVC.Models.ReporteCliente>
+@{
+    ViewBag.Title = "ReporteCliente";
+}
+
+<h2>ReporteCliente</h2>
+<table class="table">
+
+
+    <tr>
+        <th>Cliente</th>
+        <th> Documento Usuario</th>
+        <th>Id Usuario</th>
+        <th>Fecha Compra</th>
+        <th>Total Compra</th>
+    </tr>
+@foreach (var item in Model)
+{
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.nombreCliente)</td>
+    <td>@Html.DisplayFor(modelItem => item.documentoCliente)</td>
+    <td>@Html.DisplayFor(modelItem => item.idUsuario)</td>
+    <td>@Html.DisplayFor(modelItem => item.fecha_Compra)</td>
+    <td>@Html.DisplayFor(modelItem => item.totalCompra)</td>
+</tr>   }
+</table>
+
+

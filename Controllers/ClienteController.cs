@@ -114,5 +114,31 @@ namespace ProyectoºMVC.Controllers
                 return View();
             }
         }
+        public ActionResult ReporteCliente()
+        {
+            try
+            {
+                var db = new inventario2021Entities1();
+                var query = from tablaCliente in db.cliente
+                            join tablaCompra in db.compra on tablaCliente.id equals tablaCompra.id_cliente
+                            select new ReporteCliente
+                            {
+                                nombreCliente = tablaCliente.nombre,
+                                documentoCliente = tablaCliente.documento,
+                                totalCompra = tablaCompra.total,
+                                fecha_Compra=tablaCompra.fecha,
+                                idUsuario = tablaCompra.id_usuario
+
+
+                            };
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+        }
     }
+
 }

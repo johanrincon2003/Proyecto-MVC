@@ -122,5 +122,28 @@ namespace ProyectoºMVC.Controllers
                 return View();
             }
         }
+        public ActionResult Reporte()
+        {
+            try
+            {
+                var db = new inventario2021Entities1();
+                var query = from tablaProveedor in db.proveedor
+                            join tablaProducto in db.producto on tablaProveedor.id equals tablaProducto.id_proveedor
+                            select new Reporte
+                            {
+                                nombreProveedor = tablaProveedor.nombre,
+                                telefonoProveedor = tablaProveedor.telefono,
+                                direccionProveedor = tablaProveedor.direccion,
+                                nombreProducto = tablaProducto.nombre,
+                                precioProducto = tablaProducto.percio_unitario
+                            };
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+        }
     }
 }
