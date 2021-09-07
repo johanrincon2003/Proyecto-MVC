@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using ProyectoºMVC.Models;
 using System.Web.Mvc;
+using Rotativa;
 
 namespace ProyectoºMVC.Controllers
 {
@@ -140,5 +141,6 @@ namespace ProyectoºMVC.Controllers
                 return View();
             }
         }
+       
     }
 }

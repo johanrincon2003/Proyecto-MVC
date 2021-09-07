@@ -16,12 +16,15 @@
     </tr>
     @foreach (var item in Model)
     {
-<tr>
-    <td>@Html.DisplayFor(modelItem => item.nombreProveedor)</td>
-    <td>@Html.DisplayFor(modelItem => item.telefonoProveedor)</td>
-    <td>@Html.DisplayFor(modelItem => item.direccionProveedor)</td>
-    <td>@Html.DisplayFor(modelItem => item.nombreProducto)</td>
-    <td>@Html.DisplayFor(modelItem => item.precioProducto)</td>
-</tr>            }
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.nombreProveedor)</td>
+            <td>@Html.DisplayFor(modelItem => item.telefonoProveedor)</td>
+            <td>@Html.DisplayFor(modelItem => item.direccionProveedor)</td>
+            <td>@Html.DisplayFor(modelItem => item.nombreProducto)</td>
+            <td>@Html.DisplayFor(modelItem => item.precioProducto)</td>
+        </tr>
+       }
 </table>
+@Html.ActionLink("Descargar reporte","PdfProducto")
+
 

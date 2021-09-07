@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Inventario 2021", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -37,13 +37,21 @@
                             <li>@Html.ActionLink("Compra Crud", "Index", "Compra")</li>
                             <li>@Html.ActionLink("Producto Compra Crud", "Index", "Producto_compra")</li>
                             <li>@Html.ActionLink("Producto imagen Crud", "Index", "Producto_Imagen")</li>
-                            <li>@Html.ActionLink("Usuario Roles", "Index", "Usuarioroles")</li>
+                            <li>@Html.ActionLink("Usuario Roles", "Index", "Usuario_Rol")</li>
 
                         </ul>
                     </li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                <li>@Html.ActionLink("Cerrar Sesion", "CloseSession", "Usuario")</li>}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Reportes
+                            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Reporte Proveedor-Producto", "Reporte", "Producto")</li>
+                            <li>@Html.ActionLink("Reporte Cliente-Compra", "ReporteCliente", "Cliente")</li>
+                        </ul>
+                    <li>@Html.ActionLink("Cerrar Sesion", "CloseSession", "Usuario")</li>
+}
 
 </div>
         </div>

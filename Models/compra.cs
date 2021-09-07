@@ -11,6 +11,7 @@ namespace ProyectoºMVC.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class compra
     {
@@ -19,11 +20,14 @@ namespace ProyectoºMVC.Models
         {
             this.producto_compra = new HashSet<producto_compra>();
         }
-    
+       
         public int id { get; set; }
         public System.DateTime fecha { get; set; }
+        [Required(ErrorMessage = "El campo total  es obligatorio")]
         public int total { get; set; }
+        [Required(ErrorMessage = "El campo Id_Usuario es obligatorio")]
         public int id_usuario { get; set; }
+        [Required(ErrorMessage = "El campo Id_Cliente es obligatorio")]
         public int id_cliente { get; set; }
     
         public virtual cliente cliente { get; set; }

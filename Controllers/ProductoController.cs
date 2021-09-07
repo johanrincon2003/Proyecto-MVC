@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using ProyectoºMVC.Models;
 using System.Web.Mvc;
+using Rotativa;
 
 namespace ProyectoºMVC.Controllers
 {
@@ -144,6 +145,10 @@ namespace ProyectoºMVC.Controllers
                 ModelState.AddModelError("", "error" + ex);
                 return View();
             }
+        }
+        public ActionResult PdfProducto()
+        {
+            return new ActionAsPdf("Reporte") { FileName = "reporte.pdf" };
         }
     }
 }

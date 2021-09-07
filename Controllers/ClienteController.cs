@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using ProyectoºMVC.Models;
 using System.Web.Mvc;
+using Rotativa;
 
 namespace ProyectoºMVC.Controllers
 {
@@ -46,12 +47,10 @@ namespace ProyectoºMVC.Controllers
         {
             using (var db = new inventario2021Entities1())
             {
-                var findUser = db.cliente.Find(id);
-                db.cliente.Remove(findUser);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return View(db.cliente.Find(id));
             }
         }
+
         public ActionResult Delete(int id)
         {
             try
@@ -138,6 +137,10 @@ namespace ProyectoºMVC.Controllers
                 ModelState.AddModelError("", "error" + ex);
                 return View();
             }
+        }
+        public ActionResult PdfReporte()
+        {
+            return new ActionAsPdf("ReporteCliente") { FileName = "reporte.pdf" };
         }
     }
 
