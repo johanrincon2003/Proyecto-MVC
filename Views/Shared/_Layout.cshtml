@@ -22,36 +22,50 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    @if (User.Identity.IsAuthenticated == false) { 
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Opciones
-                            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Usuario Crud", "Index", "Usuario")</li>
-                            <li>@Html.ActionLink("Cliente Crud", "Index", "Cliente")</li>
-                            <li>@Html.ActionLink("Proveedor Crud", "Index", "Proveedor")</li>
-                            <li>@Html.ActionLink("Producto Crud", "Index", "Producto")</li>
-                            <li>@Html.ActionLink("Roles Crud", "Index", "Roles")</li>
-                            <li>@Html.ActionLink("Compra Crud", "Index", "Compra")</li>
-                            <li>@Html.ActionLink("Producto Compra Crud", "Index", "Producto_compra")</li>
-                            <li>@Html.ActionLink("Producto imagen Crud", "Index", "Producto_Imagen")</li>
-                            <li>@Html.ActionLink("Usuario Roles", "Index", "Usuario_Rol")</li>
+                        <li>@Html.ActionLink("Ingresar", "Login", "Usuario")</li>
+                    }
 
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Reportes
-                            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Reporte Proveedor-Producto", "Reporte", "Producto")</li>
-                            <li>@Html.ActionLink("Reporte Cliente-Compra", "ReporteCliente", "Cliente")</li>
-                        </ul>
-                    <li>@Html.ActionLink("Cerrar Sesion", "CloseSession", "Usuario")</li>
-}
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Opciones
+                                <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Usuario Crud", "Index", "Usuario")</li>
+                                <li>@Html.ActionLink("Cliente Crud", "Index", "Cliente")</li>
+                                <li>@Html.ActionLink("Proveedor Crud", "Index", "Proveedor")</li>
+                                <li>@Html.ActionLink("Producto Crud", "Index", "Producto")</li>
+                                <li>@Html.ActionLink("Roles Crud", "Index", "Roles")</li>
+                                <li>@Html.ActionLink("Compra Crud", "Index", "Compra")</li>
+                                <li>@Html.ActionLink("Producto Compra Crud", "Index", "Producto_compra")</li>
+                                <li>@Html.ActionLink("Producto imagen Crud", "Index", "Producto_Imagen")</li>
+                                <li>@Html.ActionLink("Usuario Roles", "Index", "Usuario_Rol")</li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Reportes
+                                <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Reporte Proveedor-Producto", "Reporte", "Producto")</li>
+                                <li>@Html.ActionLink("Reporte Cliente-Compra", "ReporteCliente", "Cliente")</li>
+
+                            </ul>
+                        </li>
+
+                        <li>@Html.ActionLink("Cerrar Sesion", "CloseSession", "Usuario")</li>
+                    }
+                    }
+
 
 </div>
         </div>
