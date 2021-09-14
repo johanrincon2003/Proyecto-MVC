@@ -305,9 +305,11 @@
     <Content Include="Views\Usuario_Rol\Index.cshtml" />
     <Content Include="Views\Producto\Reporte.cshtml" />
     <Content Include="Views\Cliente\ReporteCliente.cshtml" />
+    <Content Include="Views\Cliente\uploadCSV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
     <Folder Include="Views\Model\" />
   </ItemGroup>
   <ItemGroup>

@@ -141,40 +141,7 @@ namespace ProyectoºMVC.Controllers
             }
         }
 
-        //public ActionResult Login(string mensaje = "")
-        //{
-        //    ViewBag.Message = mensaje;
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Login(string user, string password)
-        //{
-        //    try
-        //    {
-        //        string passEncrip = UsuarioController.HashSHA1(password);
-        //        using (var db = new inventario2021Entities1())
-        //        {
-        //            var userLogin = db.usuario.FirstOrDefault(e => e.email == user && e.password == passEncrip);
-        //            if (userLogin != null)
-        //            {
-        //                FormsAuthentication.SetAuthCookie(userLogin.email, true);
-        //                Session["User"] = userLogin;
-        //                return RedirectToAction("Index");
-        //            }
-        //            else
-        //            {
-        //                return Login("Verifique sus datos");
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ModelState.AddModelError("", "error " + ex);
-        //        return View();
-        //    }
-        //}
+      
         public ActionResult Login(string mensaje = "")
         {
             ViewBag.Message = mensaje;
