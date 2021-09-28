@@ -5,9 +5,8 @@ using System.Web;
 using ProyectoºMVC.Models;
 using System.Web.Mvc;
 using Rotativa;
-using ProyectoºMVC.Models;
 using System.IO;
-
+using System.Web.Routing;
 namespace ProyectoºMVC.Controllers
 {
     public class ClienteController : Controller
@@ -211,6 +210,35 @@ namespace ProyectoºMVC.Controllers
         {
             return new ActionAsPdf("ReporteCliente") { FileName = "reporte.pdf" };
         }
+        public ActionResult PaginadorIndex(int pagina = 1)
+        {
+            try
+            {
+                var cantidadRegistros = 5;
+
+                using (var db = new inventario2021Entities1())
+                {
+                    var Clientes = db.cliente.OrderBy(x => x.id).Skip((pagina - 1) * cantidadRegistros).Take(cantidadRegistros).ToList();
+
+                    var totalRegistros = db.cliente.Count();
+                    var modelo = new ClienteIndex();
+                    modelo.clientes = Clientes;
+                    modelo.ActualPage = pagina;
+                    modelo.Total = totalRegistros;
+                    modelo.RecordsPage = cantidadRegistros;
+                    modelo.valueQueryString = new RouteValueDictionary();
+
+                    return View(modelo);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
     }
 
 }

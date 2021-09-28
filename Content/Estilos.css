@@ -1,0 +1,18 @@
+﻿body {
+    font-family: 'PT Serif', serif;
+}
+
+.navbar-nav > li > a {
+    color: orangered!important;
+}
+.navbar-brand {
+    color: orangered!important;
+}
+
+element.style {
+    color:orangered!important;
+}
+.table.hover > tbody > tr:hover{
+    background-color:blue!important;
+}
+
